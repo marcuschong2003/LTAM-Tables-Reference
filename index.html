@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTAM Tables Reference</title>
+    <link rel="stylesheet" href="Table.css">
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="Table.js" defer></script>
+</head>
+<body>
+    <div id="settingandsearch">
+        <div id="search">
+            <div id="inputandbutton">
+                <label>Age:</label>
+                <input type="number" value="30" name="age" id="ageinput">
+                <div id="button"><p>VLookUP</p></div>
+            </div>
+        </div>
+        <div id="selector">
+            <div class="selector selected" id="SingleLifeSelector"><p>Single Life Insurance</p></div>
+            <div class="selector" id="JointSelector"><p>Joint Life Insurance</p></div>
+            <div class="selector" id="SSDMSelector"><p>Standard Sickness-Death Model</p></div>
+            <div class="selector" id="SSTSelector"><p>Standard Service Table</p></div>
+        </div>
+    </div>
+    <div id="main">
+        <table id="singlelife">
+            <tr class="row1">
+                <th>\(\require{enclose}Age\)</th>
+                <th>\(l_x\)</th>
+                <th>\(q_x\)</th>
+                <th>\(\ddot a_x\)</th>
+                <th>\(A_x\)</th>
+                <th>\({}_{}^2A_x^{}\)</th>
+                <th>\(\ddot a_{x:\enclose{actuarial}{10}}\)</th>
+                <th>\(A_{x:\enclose{actuarial}{10}}\)</th>
+                <th>\(\ddot a_{x:\enclose{actuarial}{20}}\)</th>
+                <th>\(A_{x:\enclose{actuarial}{20}}\)</th>
+                <th>\({}^{}_5E^{}_x\)</th>
+                <th>\({}^{}_{10}E^{}_x\)</th>
+                <th>\({}^{}_{20}E^{}_x\)</th>
+            </tr>
+        </table>
+        <table id="joint">
+            <tr class="row1">
+                <th>\(Age\)</th>
+                <th>\(\ddot a_{xx}\)</th>
+                <th>\(A_{xx}\)</th>
+                <th>\({}_{}^2A_{xx}\)</th>
+                <th>\(\ddot a_{x:x:\enclose{actuarial}{10}}\)</th>
+                <th>\(\ddot a_{x:x+10}\)</th>
+                <th>\(A_{x:x+10}\)</th>
+                <th>\({}_{}^2A_{x:x+10}\)</th>
+                <th>\(\ddot a_{x:x+10:\enclose{actuarial}{10}}\)</th>
+            </tr>
+        </table>
+        <table id="SSDM">
+            <tr class="row1">
+                <th>\(Age\)</th>
+                <th>\(\bar a_x^{00}\)</th>
+                <th>\(\bar a_x^{01}\)</th>
+                <th>\(\bar a_x^{11}\)</th>
+                <th>\(\bar a_x^{10}\)</th>
+                <th>\(\bar A_x^{01}\)</th>
+                <th>\(\bar A_x^{02}\)</th>
+                <th>\(\bar A_x^{10}\)</th>
+                <th>\(\bar A_x^{12}\)</th>
+                <th>\({}^{}_{10}p_x^{00}\)</th>
+                <th>\({}^{}_{10}p_x^{01}\)</th>
+                <th>\({}^{}_{10}p_x^{11}\)</th>
+                <th>\({}^{}_{10}p_x^{10}\)</th>
+            </tr>
+        </table>
+        <table id="SST">
+            <tr class="row1">
+                <th>\(Age\)</th>
+                <th>\(l_x\)</th>
+                <th>\(w_x\)</th>
+                <th>\(i_x\)</th>
+                <th>\(r_x\)</th>
+                <th>\(d_x\)</th>
+                <th>\(Age\)</th>
+                <th>\(l_x\)</th>
+                <th>\(w_x\)</th>
+                <th>\(i_x\)</th>
+                <th>\(r_x\)</th>
+                <th>\(d_x\)</th>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
