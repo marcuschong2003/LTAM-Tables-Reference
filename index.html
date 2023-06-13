@@ -10,22 +10,93 @@
     <script type="text/javascript" src="Table.js" defer></script>
 </head>
 <body>
-    <div id="settingandsearch">
+    <div id="phonesetting" class="phone">
+        <div class="selector selected" id="SingleLifeSelectorPhone"><p>Single Life Insurance</p></div>
+        <div class="selector" id="JointSelectorPhone"><p>Joint Life Insurance</p></div>
+        <div class="selector" id="SSDMSelectorPhone"><p>Standard Sickness-Death Model</p></div>
+        <div class="selector" id="SSTSelectorPhone"><p>Standard Service Table</p></div>
+    </div>
+    <div id="phonesearch" class="phone">
+        <label>Age:</label><input type="number" value="30" name="age" id="ageinputphone">
+        <div id="phonebutton" class="phone">Search</div>
+    </div>
+    <div id="phonetable" class="phone">
+        <table id="phonesinglelife" class="phone active">
+            <tr><th>Variable</th><th>Value</th></tr>
+            <tr><th>\(\require{enclose}Age\)</th><td id="SULT-Age"></tr>
+            <tr><th>\(l_x\)</th><td id="SULT-lx"></tr>
+            <tr><th>\(q_x\)</th><td id="SULT-qx"></tr>
+            <tr><th>\(\ddot a_x\)</th><td id="SULT-ddotax"></tr>
+            <tr><th>\(A_x\)</th><td id="SULT-Ax"></tr>
+            <tr><th>\({}_{}^2A_x^{}\)</th><td id="SULT-2Ax"></tr>
+            <tr><th>\(\ddot a_{x:\enclose{actuarial}{10}}\)</th><td id="SULT-ddotax10"></tr>
+            <tr><th>\(A_{x:\enclose{actuarial}{10}}\)</th><td id="SULT-Ax10"></tr>
+            <tr><th>\(\ddot a_{x:\enclose{actuarial}{20}}\)</th><td id="SULT-ddotax20"></tr>
+            <tr><th>\(A_{x:\enclose{actuarial}{20}}\)</th><td id="SULT-Ax20"></tr>
+            <tr><th>\({}^{}_5E^{}_x\)</th><td id="SULT-5Ex"></tr>
+            <tr><th>\({}^{}_{10}E^{}_x\)</th><td id="SULT-10Ex"></tr>
+            <tr><th>\({}^{}_{20}E^{}_x\)</th><td id="SULT-20Ex"></tr>
+        </table>
+        <table id="phonejoint" class="phone">
+            <tr><th>Variable</th><th>Value</th></tr>
+            <tr><th>\(\require{enclose}Age\)</th><td id="joint-Age"></tr>
+            <tr><th>\(\ddot a_{xx}\)</th><td id="joint-axx"></tr>
+            <tr><th>\(A_{xx}\)</th><td id="joint-Axx"></tr>
+            <tr><th>\({}_{}^2A_{xx}\)</th><td id="joint-2Axx"></tr>
+            <tr><th>\(\ddot a_{x:x:\enclose{actuarial}{10}}\)</th><td id="joint-ddotaxx10"></tr>
+            <tr><th>\(\ddot a_{x:x+10}\)</th><td id="joint-ddotaxx+10"></tr>
+            <tr><th>\(A_{x:x+10}\)</th><td id="joint-Axx+10"></tr>
+            <tr><th>\({}_{}^2A_{x+x:10}\)</th><td id="joint-2Axx+10"></tr>
+            <tr><th>\(\ddot a_{x:x+10:\enclose{actuarial}{10}}\)</th><td id="joint-ddotaxx+1010"></tr>
+        </table>
+        <table id="phoneSSDM" class="phone">
+            <tr><th>Variable</th><th>Value</th></tr>
+            <tr><th>\(Age\)</th><td></td></tr>
+            <tr><th>\(\bar a_x^{00}\)</th><td></td></tr>
+            <tr><th>\(\bar a_x^{01}\)</th><td></td></tr>
+            <tr><th>\(\bar a_x^{11}\)</th><td></td></tr>
+            <tr><th>\(\bar a_x^{10}\)</th><td></td></tr>
+            <tr><th>\(\bar A_x^{01}\)</th><td></td></tr>
+            <tr><th>\(\bar A_x^{02}\)</th><td></td></tr>
+            <tr><th>\(\bar A_x^{10}\)</th><td></td></tr>
+            <tr><th>\(\bar A_x^{12}\)</th><td></td></tr>
+            <tr><th>\({}^{}_{10}p_x^{00}\)</th><td></td></tr>
+            <tr><th>\({}^{}_{10}p_x^{01}\)</th><td></td></tr>
+            <tr><th>\({}^{}_{10}p_x^{11}\)</th><td></td></tr>
+            <tr><th>\({}^{}_{10}p_x^{10}\)</th><td></td></tr>
+        </table>
+        <table id="phoneSST" class="phone">
+            <tr><th>Variable</th><th>Value</th></tr>
+            <tr><th>\(Age\)</th><td></td></tr>
+            <tr><th>\(l_x\)</th><td></td></tr>
+            <tr><th>\(w_x\)</th><td></td></tr>
+            <tr><th>\(i_x\)</th><td></td></tr>
+            <tr><th>\(r_x\)</th><td></td></tr>
+            <tr><th>\(d_x\)</th><td></td></tr>
+            <tr><th>\(Age\)</th><td></td></tr>
+            <tr><th>\(l_x\)</th><td></td></tr>
+            <tr><th>\(w_x\)</th><td></td></tr>
+            <tr><th>\(i_x\)</th><td></td></tr>
+            <tr><th>\(r_x\)</th><td></td></tr>
+            <tr><th>\(d_x\)</th><td></td></tr>
+        </table>
+    </div>
+    <div id="settingandsearch" class="computer">
         <div id="search">
             <div id="inputandbutton">
                 <label>Age:</label>
                 <input type="number" value="30" name="age" id="ageinput">
-                <div id="button"><p>VLookUP</p></div>
+                <div id="button"><p>Search</p></div>
             </div>
         </div>
         <div id="selector">
             <div class="selector selected" id="SingleLifeSelector"><p>Single Life Insurance</p></div>
             <div class="selector" id="JointSelector"><p>Joint Life Insurance</p></div>
-            <div class="selector" id="SSDMSelector"><p>Standard Sickness-Death Model</p></div>
+            <div class="selector" id="SSDMSelector"><p>Standard Sickness<br>-Death Model</p></div>
             <div class="selector" id="SSTSelector"><p>Standard Service Table</p></div>
         </div>
     </div>
-    <div id="main">
+    <div id="main" class="computer">
         <table id="singlelife">
             <tr class="row1">
                 <th>\(\require{enclose}Age\)</th>
