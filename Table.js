@@ -198,10 +198,127 @@ var SSDMSelector = document.getElementById("SSDMSelector");
 var SSTSelector = document.getElementById("SSTSelector");
 
 var selected = "SingleLife"
-var button = document.getElementById("button")
+var button = document.getElementById("button");
 var result = document.getElementById("result");
-var input = document.getElementById("ageinput")
+var input = document.getElementById("ageinput");
 
+var phonesinglelife = document.getElementById("phonesinglelife");
+var phonejoint = document.getElementById("phonejoint");
+var phoneSSDM = document.getElementById("phoneSSDM");
+var phoneSST = document.getElementById("phoneSST");
+var phoneselected = "phonesiglelife";
+var phonebutton = document.getElementById("phonebutton");
+var phoneinput = document.getElementById("ageinputphone");
+var phonesinglelifeselector = document.getElementById("SingleLifeSelectorPhone");
+var phonejointselector = document.getElementById("JointSelectorPhone");
+var phoneSSDMSelector = document.getElementById("SSDMSelectorPhone");
+var phoneSSTSelector = document.getElementById("SSTSelectorPhone");
+
+
+for(var x=0;x<SULT[0].length;x++){
+    phonesinglelife.rows[x+1].cells[1].innerHTML = SULT[0][x]
+}
+for(var x=0;x<jointtable[0].length;x++){
+    phonejoint.rows[x+1].cells[1].innerHTML = jointtable[0][x]
+}
+for(var x=0;x<SSDMdata[0].length;x++){
+    phoneSSDM.rows[x+1].cells[1].innerHTML = SSDMdata[0][x]
+}
+for(var x=0;x<SST[0].length;x++){
+    phoneSST.rows[x+1].cells[1].innerHTML = SST[0][x]
+}
+
+
+phoneSSTSelector.onclick=function(){
+    if(phoneselected!="phoneSST"){
+        phoneSST.classList.add("active");
+        phonesinglelife.classList.remove("active");
+        phonejoint.classList.remove("active");
+        phoneSSDM.classList.remove("active");
+        phonesinglelifeselector.classList.remove("selected");
+        phonejointselector.classList.remove("selected");
+        phoneSSDMSelector.classList.remove("selected");
+        phoneSSTSelector.classList.add("selected");
+        phoneselected = "phoneSST"
+    }
+}
+phonesinglelifeselector.onclick=function(){
+    if(phoneselected!="phonesinglelife"){
+        phoneSST.classList.remove("active");    
+        phonesinglelife.classList.add("active");
+        phonejoint.classList.remove("active");
+        phoneSSDM.classList.remove("active");
+        phonesinglelifeselector.classList.add("selected");
+        phonejointselector.classList.remove("selected");
+        phoneSSDMSelector.classList.remove("selected");
+        phoneSSTSelector.classList.remove("selected");
+        phoneselected = "phonesinglelife"
+    }
+}
+phonejointselector.onclick=function(){
+    if(phoneselected!="phonejoint"){
+        phoneSST.classList.remove("active");
+        phonesinglelife.classList.remove("active");
+        phonejoint.classList.add("active");
+        phoneSSDM.classList.remove("active");
+        phonesinglelifeselector.classList.remove("selected");
+        phonejointselector.classList.add("selected");
+        phoneSSDMSelector.classList.remove("selected");
+        phoneSSTSelector.classList.remove("selected");
+        phoneselected = "phonejoint"
+    }
+}
+phoneSSDMSelector.onclick=function(){
+    if(phoneselected!="phoneSSDM"){
+        phoneSST.classList.remove("active");
+        phonesinglelife.classList.remove("active");
+        phonejoint.classList.remove("active");
+        phoneSSDM.classList.add("active");
+        phonesinglelifeselector.classList.remove("selected");
+        phonejointselector.classList.remove("selected");
+        phoneSSDMSelector.classList.add("selected");
+        phoneSSTSelector.classList.remove("selected");
+        phoneselected = "phoneSSDM" 
+    }
+}
+phonebutton.onclick=function(){
+    console.log(phoneselected)
+    num = parseInt(phoneinput.value)
+    if(phoneselected=="phoneSST"){
+        if(num<35||num>65){
+            alert("OI")
+        }else{
+            actualindex = num>50?num-50:num-35
+            for(var x=0;x<SST[0].length;x++){
+                phoneSST.rows[x+1].cells[1].innerHTML = SST[actualindex][x]
+            }
+        }
+    }else if(phoneselected=="phonesinglelife"){
+        if(num<20||num>100){
+            alert("OI")
+        }else{
+            for(var x=0;x<SULT[0].length;x++){
+                phonesinglelife.rows[x+1].cells[1].innerHTML = SULT[num-20][x]
+            }
+        }
+    }else if(phoneselected=="phonejoint"){
+        if(num<30||num>80){
+            alert("OI")
+        }else{
+            for(var x=0;x<jointtable[0].length;x++){
+                phonejoint.rows[x+1].cells[1].innerHTML = jointtable[num-30][x]
+            }
+        }
+    }else{
+        if(num<50||num>79){
+            alert("OI")
+        }else{
+            for(var x=0;x<SSDMdata[0].length;x++){
+                phoneSSDM.rows[x+1].cells[1].innerHTML = SSDMdata[num-50][x]
+            }
+        }
+    }
+}
 function genSULT(){
     for (var x=0;x<SULT.length;x++){
         row = singlelife.insertRow();
