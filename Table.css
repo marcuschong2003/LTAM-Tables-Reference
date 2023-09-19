@@ -4,6 +4,14 @@
     font-family: "Verdana";
     font-size: 1.4vh;
 }
+*{
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+*::-webkit-scrollbar{
+    display: none;
+}
 body{
     top: 0;
     left: 0;
